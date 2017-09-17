@@ -12,7 +12,7 @@ def Dictionary_Generation(alphabet):
 
     return alpha_dict
     
-Dictionary_Generation(alphabet)
+#Dictionary_Generation(alphabet)
 
 
 #def Num2Letter(
