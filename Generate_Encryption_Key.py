@@ -88,14 +88,18 @@ def generate_decryption_key(encryption_key):
 
     ## Final decryption key for [[1,2],[3,4]] is [[27,1],[16,14]]
     ## decryption_key = inv(det(key)mod29) * (det(key) * inv(key)) % 29
-    decryption_key = (det_key_mod_inv * (key_inv * det_key)) % 29
+    decryption_key = (key_inv * det_key)
+    #decryption_key = np.around(decryption_key)
+    #decryption_key = decryption_key.astype(int)
+    decryption_key = (det_key_mod_inv * decryption_key) % 29
+    decryption_key = np.around(decryption_key,0)
     print(decryption_key)
     return decryption_key
     
 
 #x =  np.array([[1,2],[3,4]])
 #print(x)
-x = generate_encryption_key(3)
+x = generate_encryption_key(4)
 res = generate_decryption_key(x)
            
 
