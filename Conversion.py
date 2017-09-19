@@ -63,11 +63,11 @@ def generate_cipher_matrix(text, size):
     return matrix
 
 
-def convert(key, text):
+def encrypt_message(key, text):
     encrypted_message = key.dot(text) % 29
     return encrypted_message
 
-#convert(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
+#encrypt_message(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
 
 
 #text="abcdefghijklmnopqrstuvwxyz., "
