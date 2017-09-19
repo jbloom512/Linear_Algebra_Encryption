@@ -67,6 +67,10 @@ def encrypt_message(key, text):
     encrypted_message = key.dot(text) % 29
     return encrypted_message
 
+def decrypt_message(key,encrypted_text):
+    decrypted_message = (key.dot(encrypted_text) % 29).astype(int)
+    return decrypted_message
+
 #encrypt_message(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
 
 
