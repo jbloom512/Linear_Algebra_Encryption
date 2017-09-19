@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 import re
 import numpy as np
+import Dictionary_Generation
 
 
 def sanitize(text):
+    # Small bug using .strip here. If we encrypt our alphabet, we lose the space
+    # at the end of the alphabet. Work around is to double quote the alphabet.
     text = text.strip().lower()
     text = re.findall(r"[a-z .,]", text)
 
@@ -36,9 +39,11 @@ def generate_cipher_matrix(text, size):
 
     # Loop through each char in our message
     for char in text:
-
-        # Add the char to the vector and increment our counter by 1
-        vector.append(char)
+        # Convert the character to a number using function defined in script Dictionary_Generation.py
+        converted_char = Dictionary_Generation.Letter2Num(char)
+        print(char)
+        # Add the converted char to the vector and increment our counter by 1
+        vector.append(converted_char)
         count += 1
 
         # If the counter equals the desired size, add the vector to the matrix, redefine an empty vector and our counter
@@ -47,11 +52,12 @@ def generate_cipher_matrix(text, size):
             vector = []
             count = 0
     # Convert the matrix to a numpy array
-    matrix = np.array(matrix)
     print(matrix)
+    matrix = np.array(matrix)
+    #print(matrix)
+
     # Because we were adding vectors as if they were rows, we take the transpose of our newly built matrix
     matrix = np.transpose(matrix)
-    print(matrix)
 
 
     return matrix
@@ -60,10 +66,9 @@ def generate_cipher_matrix(text, size):
 def convert(key, text):
     return matrix
 
-text="Hey What's up hello my doods haa"
-text="This is JUST!!! a test gl hf"
 
 
-generate_cipher_matrix(text,3)
 
+#text="abcdefghijklmnopqrstuvwxyz., "
+#generate_cipher_matrix(text,4)
 #print(sanitize(text))
