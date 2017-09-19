@@ -89,7 +89,7 @@ def generate_decryption_key(encryption_key):
     #decryption_key = decryption_key.astype(int)
     decryption_key = (det_key_mod_inv * decryption_key) % 29
     decryption_key = np.around(decryption_key, 0)
-    print(decryption_key)
+    #print(decryption_key)
     return decryption_key
 
 

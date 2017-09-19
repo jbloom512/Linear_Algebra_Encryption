@@ -72,8 +72,6 @@ def decrypt_message(key,encrypted_text):
     return decrypted_message
 
 #encrypt_message(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
-
-
 #text="abcdefghijklmnopqrstuvwxyz., "
 #generate_cipher_matrix(text,4)
 #print(sanitize(text))
