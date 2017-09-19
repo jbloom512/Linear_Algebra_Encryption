@@ -41,7 +41,7 @@ def generate_cipher_matrix(text, size):
     for char in text:
         # Convert the character to a number using function defined in script Dictionary_Generation.py
         converted_char = Dictionary_Generation.Letter2Num(char)
-        print(char)
+        #print(char)
         # Add the converted char to the vector and increment our counter by 1
         vector.append(converted_char)
         count += 1
@@ -52,7 +52,7 @@ def generate_cipher_matrix(text, size):
             vector = []
             count = 0
     # Convert the matrix to a numpy array
-    print(matrix)
+    #print(matrix)
     matrix = np.array(matrix)
     #print(matrix)
 
@@ -64,9 +64,10 @@ def generate_cipher_matrix(text, size):
 
 
 def convert(key, text):
-    return matrix
+    encrypted_message = key.dot(text) % 29
+    return encrypted_message
 
-
+#convert(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
 
 
 #text="abcdefghijklmnopqrstuvwxyz., "
