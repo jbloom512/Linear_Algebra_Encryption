@@ -15,8 +15,7 @@ Generate Encryption Key
 def generate_encryption_key(size):
     determinant = 0
     # Need to make sure encryption key is invertible, IE det(key) != 0
-    while determinant != 0:
-
+    while determinant == 0:
         matrix = []
 
         for i in range(size):  # Repeat i times based on input size
@@ -29,9 +28,11 @@ def generate_encryption_key(size):
 
         # Convert list of lists into numpy array, which acts as a matrix
         encryption_key = np.array(matrix)
-
         # If matrix is invertible, end function and return matrix
+        #print(determinant)
         determinant = int(np.linalg.det(encryption_key))
+    return encryption_key
+
 
 
 '''
@@ -94,5 +95,6 @@ def generate_decryption_key(encryption_key):
 
 #x =  np.array([[1,2],[3,4]])
 # print(x)
-x = generate_encryption_key(4)
-res = generate_decryption_key(x)
+#x = generate_encryption_key(4)
+#print(x)
+#res = generate_decryption_key(x)
