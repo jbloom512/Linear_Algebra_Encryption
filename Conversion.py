@@ -71,7 +71,25 @@ def decrypt_message(key,encrypted_text):
     decrypted_message = (key.dot(encrypted_text) % 29).astype(int)
     return decrypted_message
 
+def convert_matrix_to_text(matrix):
+    matrix = np.transpose(matrix).tolist()
+    message = ''
+    for row in matrix:
+        for ele in row:
+            #print(ele)
+            message += Dictionary_Generation.Num2Letter(ele)
+    return message
+
+
+
+
+
+
+
+
 #encrypt_message(np.array([[1,2],[3,4]]), np.array([[1,2,3,4,5],[6,7,8,9,10]]))
-#text="abcdefghijklmnopqrstuvwxyz., "
-#generate_cipher_matrix(text,4)
+#text="'abcdefghijklmnopqrstuvwxyz., '"
+#cipher_mat = generate_cipher_matrix(text,4)
+#convert_matrix_to_text(cipher_mat)
+
 #print(sanitize(text))
