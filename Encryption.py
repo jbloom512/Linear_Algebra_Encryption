@@ -34,8 +34,8 @@ def hill_cipher_algorithm(message_to_encrypt,key_size):
     folder = os.getcwd() + '//Encryption'
     if not os.path.exists(folder):
         os.mkdir(folder)
-    encrypted_text = convert_matrix_to_text(encrypted_matrix)
-    decrypted_text = convert_matrix_to_text(decrypted_matrix)
+    encrypted_text = Conversion.convert_matrix_to_text(encrypted_matrix)
+    decrypted_text = Conversion.convert_matrix_to_text(decrypted_matrix)
     print(encrypted_text)
     print(decrypted_text)
     write_encrypted_message(encrypted_text,decryption_key,folder)
@@ -43,7 +43,7 @@ def hill_cipher_algorithm(message_to_encrypt,key_size):
 
 #message_to_encrypt = '"abcdefghijklmnopqrstuvwxyz., ""'
 message_to_encrypt = 'This is a random test!? to see how we do, i hope well.!'
-key_size = 4
+key_size = 11
 hill_cipher_algorithm(message_to_encrypt,key_size)
 
 
