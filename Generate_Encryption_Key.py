@@ -18,7 +18,6 @@ def generate_encryption_key(size):
     # Need to make sure encryption key is invertible, IE det(key) != 0
     while determinant == 0:
         matrix = []
-
         for i in range(size):  # Repeat i times based on input size
             row = []
             for k in range(size):
@@ -29,9 +28,13 @@ def generate_encryption_key(size):
 
         # Convert list of lists into numpy array, which acts as a matrix
         encryption_key = np.array(matrix)
+        try:
+            determinant = sympy.Matrix(encryption_key.tolist()).inv_mod(29).det()
+        except:
+            pass
         # If matrix is invertible, end function and return matrix
         #print(determinant)
-        determinant = int(np.linalg.det(encryption_key))
+        #determinant = int(np.linalg.det(encryption_key))
     return encryption_key
 
 
