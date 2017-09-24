@@ -106,7 +106,7 @@ def generate_sympy_decryption_key(encryption_key):
 
 #x =  np.array([[1,2],[3,4]])
 # print(x)
-x = generate_encryption_key(4)
-generate_sympy_decryption_key(x)
+#x = generate_encryption_key(4)
+#generate_sympy_decryption_key(x)
 #print(x)
 #res = generate_decryption_key(x)
