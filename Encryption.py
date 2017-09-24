@@ -25,7 +25,7 @@ def hill_cipher_algorithm(message_to_encrypt,key_size):
         message_matrix = Conversion.generate_cipher_matrix(message_to_encrypt,key_size)
         encryption_key = Generate_Encryption_Key.generate_encryption_key(key_size)
         encrypted_matrix = Conversion.encrypt_message(encryption_key,message_matrix)
-        decryption_key = Generate_Encryption_Key.generate_decryption_key(encryption_key)
+        decryption_key = Generate_Encryption_Key.generate_sympy_decryption_key(encryption_key)
         decrypted_matrix = Conversion.decrypt_message(decryption_key,encrypted_matrix)
         if np.array_equiv(message_matrix,decrypted_matrix) == True:
             success = True
