@@ -43,7 +43,7 @@ def hill_cipher_algorithm(message_to_encrypt,key_size):
 
 #message_to_encrypt = '"abcdefghijklmnopqrstuvwxyz., ""'
 message_to_encrypt = 'This is a random test!? to see how we do, i hope well.!'
-key_size = 11
+key_size = 15
 hill_cipher_algorithm(message_to_encrypt,key_size)
 
 
