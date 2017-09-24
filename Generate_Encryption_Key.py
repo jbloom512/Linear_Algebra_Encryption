@@ -2,6 +2,7 @@
 
 import random
 import numpy as np
+import sympy
 
 mod_space = 29
 
@@ -92,9 +93,20 @@ def generate_decryption_key(encryption_key):
     #print(decryption_key)
     return decryption_key
 
+def generate_sympy_decryption_key(encryption_key):
+    encryption_key = sympy.Matrix(encryption_key.tolist())
+    #key_inverse = encryption_key ** -1
+    #key_determinant = encryption_key.det()
+    decryption_key = np.array(encryption_key.inv_mod(29))
+
+    #key_determinant_mod = key_determinant % 29
+    return decryption_key
+
+
 
 #x =  np.array([[1,2],[3,4]])
 # print(x)
-#x = generate_encryption_key(4)
+x = generate_encryption_key(4)
+generate_sympy_decryption_key(x)
 #print(x)
 #res = generate_decryption_key(x)
